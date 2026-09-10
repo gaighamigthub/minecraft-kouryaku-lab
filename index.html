@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="マイクラ攻略ラボ。初心者向け攻略、採掘、村人、ネザー、建築、シードなどをわかりやすく紹介する非公式ファンサイトです。">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2e7d32">
+  <title>マイクラ攻略ラボ｜初心者から使えるMinecraft攻略サイト</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./" aria-label="マイクラ攻略ラボ ホーム">
+      <span class="brand-icon">◆</span><span>マイクラ攻略ラボ</span>
+    </a>
+    <nav class="desktop-nav" aria-label="メインナビゲーション">
+      <a href="./">ホーム</a>
+      <a href="#categories">カテゴリ</a>
+      <a href="#latest">攻略記事</a>
+      <a href="about.html">このサイトについて</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">MINECRAFT FAN GUIDE</p>
+    <h1>マイクラ攻略を、<br>もっとわかりやすく。</h1>
+    <p class="hero-copy">初心者向けの攻略から、採掘・村人・ネザー・建築まで。スマホでサクッと読める攻略サイトです。</p>
+    <form id="searchForm" class="search" role="search">
+      <label class="sr-only" for="searchInput">記事を検索</label>
+      <input id="searchInput" type="search" autocomplete="off" placeholder="「ダイヤ」「村人」「ネザー」など" />
+      <button type="submit">検索</button>
+    </form>
+  </section>
+
+  <section class="ad-slot" aria-label="広告">
+    <span>広告スペース</span>
+    <small>公開後、広告サービスの審査・承認後に広告コードをここへ設置</small>
+  </section>
+
+  <section id="searchResults" class="section hidden">
+    <div class="section-head">
+      <h2>検索結果</h2><button id="clearSearch" class="text-button">検索を解除</button>
+    </div>
+    <p id="resultMeta" class="muted"></p>
+    <div id="resultGrid" class="article-grid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>人気記事</h2><a href="#latest">すべて見る →</a></div>
+    <div id="popularGrid" class="article-grid"></div>
+  </section>
+
+  <section id="categories" class="section">
+    <div class="section-head"><h2>カテゴリ</h2></div>
+    <div id="categoryGrid" class="category-grid"></div>
+  </section>
+
+  <section id="latest" class="section">
+    <div class="section-head"><h2>最新攻略</h2></div>
+    <div id="latestGrid" class="article-grid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>マイクラ攻略ラボとは？</h2></div>
+    <div class="info-card">
+      <p>マイクラ攻略ラボは、Minecraftを楽しむためのオリジナル攻略情報をまとめる非公式ファンサイトです。</p>
+      <p>記事は「初心者でも迷わない」「スマホで読みやすい」を重視して作っていきます。</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>マイクラ攻略ラボ</strong></p>
+    <p>本サイトはMinecraftの非公式ファンサイトです。Mojang Studios / Microsoftとは提携・承認されていません。</p>
+    <div class="footer-links">
+      <a href="about.html">サイトについて</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <p class="copyright">© 2026 マイクラ攻略ラボ</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="スマホナビ">
+  <a href="./"><span>⌂</span>ホーム</a>
+  <button id="mobileSearch" type="button"><span>⌕</span>検索</button>
+  <a href="#categories"><span>▦</span>カテゴリ</a>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>

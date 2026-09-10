@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="マイクラ攻略ラボの記事">
+  <title>攻略記事 | マイクラ攻略ラボ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="./"><span class="brand-icon">◆</span><span>マイクラ攻略ラボ</span></a><nav class="desktop-nav"><a href="./">ホーム</a><a href="./#categories">カテゴリ</a><a href="./#latest">攻略記事</a></nav></div></header>
+<main class="wrap">
+  <a class="back" href="./">← ホームへ戻る</a>
+  <article id="article" class="article-page"></article>
+  <section class="ad-slot" aria-label="広告"><span>広告スペース</span><small>公開後、承認済みの広告コードをここへ設置</small></section>
+  <section class="section"><div class="section-head"><h2>関連記事</h2></div><div id="related" class="article-grid"></div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><p><strong>マイクラ攻略ラボ</strong></p><p>本サイトはMinecraftの非公式ファンサイトです。Mojang Studios / Microsoftとは提携・承認されていません。</p><div class="footer-links"><a href="about.html">サイトについて</a><a href="privacy.html">プライバシーポリシー</a><a href="contact.html">お問い合わせ</a></div></div></footer>
+<script src="app.js"></script>
+<script>
+const id=Number(new URLSearchParams(location.search).get("id"))||1;
+const a=articles.find(x=>x.id===id)||articles[0];
+document.title=`${a.title}｜マイクラ攻略ラボ`;
+document.querySelector('meta[name="description"]').content=a.desc;
+document.getElementById("article").innerHTML=`
+<span class="tag">${a.cat}</span><h1>${a.icon} ${a.title}</h1>
+<p class="muted">マイクラ攻略ラボ編集部</p>
+<p>${a.desc}</p>
+<h2>はじめに</h2><p>${a.body[0]}</p>
+<div class="tip"><strong>ポイント：</strong>この記事は初心者でも読みやすいように、基本から順番に整理しています。</div>
+<h2>攻略のポイント</h2><p>${a.body[1]}</p>
+<h2>注意点</h2><p>${a.body[2]}</p>
+<h2>まとめ</h2><p>無理に急がず、安全を確保しながら進めるのがコツです。今後、具体例や検証結果を追加して記事を充実させていきます。</p>`;
+const rel=articles.filter(x=>x.id!==a.id && x.cat===a.cat).slice(0,3);
+document.getElementById("related").innerHTML=(rel.length?rel:articles.filter(x=>x.id!==a.id).slice(0,3)).map(card).join("");
+</script>
+</body>
+</html>
