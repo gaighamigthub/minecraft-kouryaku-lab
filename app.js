@@ -33,5 +33,5 @@ function search(q){
 }
 $("#searchForm").addEventListener("submit",e=>{e.preventDefault();search($("#searchInput").value)});
 $("#clearSearch").addEventListener("click",()=>{$("#searchResults").classList.add("hidden");$("#searchInput").value=""});
-$("#mobileSearch").addEventListener("click",()=>{$("#searchInput").focus();$("#searchInput").scrollIntoView({behavior:"smooth",block:"center")});
+$("#mobileSearch").addEventListener("click",()=>{$("#searchInput").focus();$("#searchInput").scrollIntoView({behavior:"smooth",block:"center"});});
 renderHome();
