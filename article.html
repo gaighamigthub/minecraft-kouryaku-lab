@@ -22,14 +22,45 @@ const a=articles.find(x=>x.id===id)||articles[0];
 document.title=`${a.title}｜マイクラ攻略ラボ`;
 document.querySelector('meta[name="description"]').content=a.desc;
 document.getElementById("article").innerHTML=`
-<span class="tag">${a.cat}</span><h1>${a.icon} ${a.title}</h1>
+<span class="tag">${a.cat}</span>
+
+<h1>${a.icon} ${a.title}</h1>
+
 <p class="muted">マイクラ攻略ラボ編集部</p>
-<p>${a.desc}</p>
-<h2>はじめに</h2><p>${a.body[0]}</p>
-<div class="tip"><strong>ポイント：</strong>この記事は初心者でも読みやすいように、基本から順番に整理しています。</div>
-<h2>攻略のポイント</h2><p>${a.body[1]}</p>
-<h2>注意点</h2><p>${a.body[2]}</p>
-<h2>まとめ</h2><p>無理に急がず、安全を確保しながら進めるのがコツです。今後、具体例や検証結果を追加して記事を充実させていきます。</p>`;
+
+<p class="article-lead">${a.desc}</p>
+
+<div class="tip">
+<strong>この記事で分かること</strong>
+<ul>
+${a.points.map(x => `<li>${x}</li>`).join("")}
+</ul>
+</div>
+
+<h2>目次</h2>
+
+<div class="article-toc">
+<ol>
+${a.sections.map((s,i) => `<li><a href="#section-${i}">${s.title}</a></li>`).join("")}
+</ol>
+</div>
+
+${a.sections.map((s,i) => `
+<section id="section-${i}">
+<h2>${i + 1}. ${s.title}</h2>
+${s.content}
+</section>
+`).join("")}
+
+<div class="tip">
+<strong>攻略のポイント：</strong>
+${a.tip}
+</div>
+
+<h2>まとめ</h2>
+
+<p>${a.summary}</p>
+`;
 const rel=articles.filter(x=>x.id!==a.id && x.cat===a.cat).slice(0,3);
 document.getElementById("related").innerHTML=(rel.length?rel:articles.filter(x=>x.id!==a.id).slice(0,3)).map(card).join("");
 </script>
